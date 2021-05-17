@@ -32,3 +32,4 @@ jobs:
           push: true
           tags: |
             iroyway/scripts:latest
+            iroyway/scripts:0.1
