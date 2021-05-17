@@ -21,7 +21,7 @@ RUN set -ex \
     && echo -e $KEY > /root/.ssh/id_rsa \
     && chmod 600 /root/.ssh/id_rsa \
     && ssh-keyscan gitee.com > /root/.ssh/known_hosts \
-    && git clone -b $REPO_BRANCH $REPO_URL /scripts \
+    && git clone -b master git@github.com:iroyway/scripts.git /scripts \
     && cd /scripts \
     && mkdir logs \
     && npm config set registry https://registry.npm.taobao.org \
