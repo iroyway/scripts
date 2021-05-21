@@ -32,7 +32,7 @@ let id = ""
 let cj = '[{"type":"lottery_draw","data":{"priceType":3001}}]';
 !(async () => {
     if (typeof $request !== "undefined") {
-        await iroyway_fhxzck()
+        await iroyway_fhxzck();
 
     } else {
         iroyway_fhxzurlArr.push($.getdata('iroyway_fhxzurl'))
@@ -54,6 +54,8 @@ let cj = '[{"type":"lottery_draw","data":{"priceType":3001}}]';
                 await $.wait(3000);
                 await zdcj();
                 await $.wait(3000);
+                await iroyway_fhxztx();
+                await $.wait(3000);
                 //console.log(iroyway_fhxzxx);
             }
         }
@@ -65,15 +67,15 @@ let cj = '[{"type":"lottery_draw","data":{"priceType":3001}}]';
 //数据获取 
 function iroyway_fhxzck() {
     if ($request.url.indexOf("system_getGpvGameOptions") > -1) {
-        const iroyway_fhxzurl = $request.url
-        id = iroyway_fhxzurl.match(/token=(\S+)/)
-        $.log(id)
-        if (iroyway_fhxzurl) $.setdata(iroyway_fhxzurl, `iroyway_fhxzurl${status}`)
-        $.log(iroyway_fhxzurl)
-        const iroyway_fhxzhd = JSON.stringify($request.headers)
-        if (iroyway_fhxzhd) $.setdata(iroyway_fhxzhd, `iroyway_fhxzhd${status}`)
-        $.log(iroyway_fhxzhd)
-        $.msg($.name, "", '富豪小镇' + `${status}` + '数据获取成功！')
+        const iroyway_fhxzurl = $request.url;
+        id = iroyway_fhxzurl.match(/token=(\S+)/);
+        $.log(id);
+        if (iroyway_fhxzurl) $.setdata(iroyway_fhxzurl, `iroyway_fhxzurl${status}`);
+        $.log(iroyway_fhxzurl);
+        const iroyway_fhxzhd = JSON.stringify($request.headers);
+        if (iroyway_fhxzhd) $.setdata(iroyway_fhxzhd, `iroyway_fhxzhd${status}`);
+        $.log(iroyway_fhxzhd);
+        $.msg($.name, "", '富豪小镇' + `${status}` + '数据获取成功！');
     }
 }
 
@@ -115,7 +117,7 @@ function iroyway_fhxzxx(timeout = 0) {
         let url = {
             url: "https://sunnytown.hyskgame.com/api/messages?access' + id + 'msgtype=market_getItemList",
             headers: JSON.parse(iroyway_fhxzhd),
-            body: [{ "type": "market_getItemList", "data": {} }],
+            //body: [{ "type": "market_getItemList", "data": {} }],
 
 
         }
