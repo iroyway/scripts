@@ -71,7 +71,7 @@ function iroyway_fhxzck() {
         if (iroyway_fhxzurl) $.setdata(iroyway_fhxzurl, `iroyway_fhxzurl${status}`)
         $.log(iroyway_fhxzurl)
         const iroyway_fhxzhd = JSON.stringify($request.headers)
-        if (iroyway_fhxzhd) $.setdata(iroyway_fhxzhd, `fhxzhd${status}`)
+        if (iroyway_fhxzhd) $.setdata(iroyway_fhxzhd, `iroyway_fhxzhd${status}`)
         $.log(iroyway_fhxzhd)
         $.msg($.name, "", '富豪小镇' + `${status}` + '数据获取成功！')
     }
