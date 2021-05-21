@@ -114,7 +114,7 @@ function iroyway_fhxzxx(timeout = 0) {
         id = iroyway_fhxzurl.match(/Token=\S+&/)
         let url = {
             url: "https://sunnytown.hyskgame.com/api/messages?access' + id + 'msgtype=market_getItemList",
-            //headers: JSON.parse(iroyway_fhxzhd),
+            headers: JSON.parse(iroyway_fhxzhd),
             body: [{ "type": "market_getItemList", "data": {} }],
 
 
@@ -127,7 +127,7 @@ function iroyway_fhxzxx(timeout = 0) {
 
                 if (result.code == 0) {
 
-                    console.log('\n富豪小镇用户信息获取成功\n当前梅子:' + result.data.marketItemList.stateCode + '\n当前可提现产品:' + result.data.marketItemList.title)
+                    console.log('\n富豪小镇用户信息获取成功\n当前可提现:' + result.data.marketItemList.stateCode + '\n当前可提现产品:' + result.data.marketItemList.title)
                     if (result.data.farmlandList.stateCode >= 1) {
                         $.log('富豪小镇-检测到当前有可提现产品,执行提现任务')
                         await iroyway_fhxztx();
