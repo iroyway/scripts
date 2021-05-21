@@ -1,3 +1,26 @@
+/*
+作者信息：
+微信公众号：柠檬玩机交流
+柠檬富豪小镇
+下载地址：https://hyskgame.com/apps/fuhaoxiaozhen/wxshare/index.html?createAt=1619750062&senderUserId=152420&senderInviteCode=HG7X&entryPointData=eyJzZW5kZXJVc2VySWQiOiIxNTI0MjAifQ
+TG电报群: https://t.me/ningmeng666
+微信公众号：柠檬玩机交流
+
+圈X
+[rewrite_local]
+#富豪小镇
+https://sunnytown.hyskgame.com/api/messages\SaccessToken=\w+&msgtype=system_getGpvGameOptions url script-request-body https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_fhxz.js
+[MITM]
+hostname = sunnytown.hyskgame.com
+#loon
+https://sunnytown.hyskgame.com/api/messages\SaccessToken=\w+&msgtype=system_getGpvGameOptions url script-request-body https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_fhxz.js, requires-body=true, timeout=10, tag=柠檬富豪小镇
+#surge
+富豪小镇 = type=https://sunnytown.hyskgame.com/api/messages\SaccessToken=\w+&msgtype=system_getGpvGameOptions,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_fhxz.js,script-update-interval=0
+*/
+
+// [task_local]
+//#柠檬富豪小镇
+// */10 * * * * https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_fhxz.js, tag=柠檬富豪小镇, enabled=true
 const $ = new Env('富豪小镇');
 let status;
 status = (status = ($.getval("iroyway_fhxzstatus") || "1")) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -9,7 +32,7 @@ let id = ""
 let cj = '[{"type":"lottery_draw","data":{"priceType":3001}}]';
 !(async () => {
     if (typeof $request !== "undefined") {
-        await fhxzck()
+        await iroyway_fhxzck()
 
     } else {
         iroyway_fhxzurlArr.push($.getdata('iroyway_fhxzurl'))
@@ -39,46 +62,61 @@ let cj = '[{"type":"lottery_draw","data":{"priceType":3001}}]';
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
-//抽奖
+//数据获取 
+function iroyway_fhxzck() {
+    if ($request.url.indexOf("system_getGpvGameOptions") > -1) {
+        const iroyway_fhxzurl = $request.url
+        id = iroyway_fhxzurl.match(/token=(\S+)/)
+        $.log(id)
+        if (iroyway_fhxzurl) $.setdata(iroyway_fhxzurl, `iroyway_fhxzurl${status}`)
+        $.log(iroyway_fhxzurl)
+        const iroyway_fhxzhd = JSON.stringify($request.headers)
+        if (iroyway_fhxzhd) $.setdata(iroyway_fhxzhd, `fhxzhd${status}`)
+        $.log(iroyway_fhxzhd)
+        $.msg($.name, "", '富豪小镇' + `${status}` + '数据获取成功！')
+    }
+}
 
+
+//抽奖
 function zdcj(timeout = 0) {
     return new Promise((resolve) => {
-  
-      id = iroyway_fhxzurl.match(/Token=\S+&/)
-      //$.log(id) 
-      let url = {
-        url: 'https://sunnytown.hyskgame.com/api/messages?access' + id + 'msgtype=lottery_draw',
-  
-        body: cj,
-      }
-      $.post(url, async (err, resp, data) => {
-  
-        try {
-          if (data.match(/lottery_draw/) == 'lottery_draw') {
-            $.log(`抽奖成功 剩余次数:` + data.match(/remainingTimes":(\d+),/)[1])
-  
-          } else {
-            $.log(`抽奖次数不足`)
-  
-  
-          }
-        } catch (e) {
-          $.logErr(e, resp);
-        } finally {
-          resolve()
+
+        id = iroyway_fhxzurl.match(/Token=\S+&/)
+        //$.log(id) 
+        let url = {
+            url: 'https://sunnytown.hyskgame.com/api/messages?access' + id + 'msgtype=lottery_draw',
+
+            body: cj,
         }
-      }, timeout)
+        $.post(url, async (err, resp, data) => {
+
+            try {
+                if (data.match(/lottery_draw/) == 'lottery_draw') {
+                    $.log(`抽奖成功 剩余次数:` + data.match(/remainingTimes":(\d+),/)[1])
+
+                } else {
+                    $.log(`抽奖次数不足`)
+
+
+                }
+            } catch (e) {
+                $.logErr(e, resp);
+            } finally {
+                resolve()
+            }
+        }, timeout)
     })
-  }
-  //富豪小镇信息
+}
+//富豪小镇信息
 function iroyway_fhxzxx(timeout = 0) {
     return new Promise((resolve) => {
         id = iroyway_fhxzurl.match(/Token=\S+&/)
         let url = {
             url: "https://sunnytown.hyskgame.com/api/messages?access' + id + 'msgtype=market_getItemList",
             //headers: JSON.parse(iroyway_fhxzhd),
-            body:[{"type":"market_getItemList","data":{}}],
-    
+            body: [{ "type": "market_getItemList", "data": {} }],
+
 
         }
         console.log(url);
