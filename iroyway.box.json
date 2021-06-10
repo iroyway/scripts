@@ -5,54 +5,87 @@
     "icon": "",
     "repo": "https://github.com/iroyway/scripts",
     "apps": [
-            {
-                    "id": "iroyway_fhxz",
-                    "name": "富豪小镇改",
-                    "keys": [
-                            "iroyway_fhxzurl",
-                            "iroyway_fhxzhd",
-                            "iroyway_fhxzurl2",
-                            "iroyway_fhxzhd2",
-                            "iroyway_fhxzurl3",
-                            "iroyway_fhxzhd3",
-                            "iroyway_fhxzurl4",
-                            "iroyway_fhxzhd4",
-                            "iroyway_fhxzurl5",
-                            "iroyway_fhxzhd5",
-                            "iroyway_fhxzurl6",
-                            "iroyway_fhxzhd6",
-                                                    "iroyway_fhxzurl7",
-                            "iroyway_fhxzhd7",
-                                                    "iroyway_fhxzurl8",
-                            "iroyway_fhxzhd8",
-                                                    "iroyway_fhxzurl9",
-                            "iroyway_fhxzhd9",
-                                                    "iroyway_fhxzurl10",
-                            "iroyway_fhxzhd10"
-                    ],
-                    "author": "@iroyway",
-                    "settings": [
-                            {
-                                    "id": "iroyway_fhxzstatus",
-                                    "name": "当前账号",
-                                    "val": "1",
-                                    "type": "number",
-                                    "desc": "当前账号对应"
-                            },
-                            {
-                                    "id": "iroyway_fhxzcount",
-                                    "name": "账号个数",
-                                    "val": "1",
-                                    "type": "number",
-                                    "desc": "需要几个账号，数字为几"
-                            }
-                    ],
-                    "repo": "https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_fhxz.js",
-                    "icons": [
-                            "https://gitee.com/ydj0602/hym/raw/img/DKD.PNG",
-                            "https://gitee.com/ydj0602/hym/raw/img/DKD.PNG"
-                    ],
-                    "script": "https://raw.githubusercontent.com/age174/-/main/dkd.js"
-            }
+        {
+            "id": "iroyway_fhxz",
+            "name": "富豪小镇改",
+            "keys": [
+                "iroyway_fhxzurl",
+                "iroyway_fhxzhd",
+                "iroyway_fhxzurl2",
+                "iroyway_fhxzhd2",
+                "iroyway_fhxzurl3",
+                "iroyway_fhxzhd3",
+                "iroyway_fhxzurl4",
+                "iroyway_fhxzhd4",
+                "iroyway_fhxzurl5",
+                "iroyway_fhxzhd5",
+                "iroyway_fhxzurl6",
+                "iroyway_fhxzhd6",
+                "iroyway_fhxzurl7",
+                "iroyway_fhxzhd7",
+                "iroyway_fhxzurl8",
+                "iroyway_fhxzhd8",
+                "iroyway_fhxzurl9",
+                "iroyway_fhxzhd9",
+                "iroyway_fhxzurl10",
+                "iroyway_fhxzhd10"
+            ],
+            "author": "@iroyway",
+            "settings": [
+                {
+                    "id": "iroyway_fhxzstatus",
+                    "name": "当前账号",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "当前账号对应"
+                },
+                {
+                    "id": "iroyway_fhxzcount",
+                    "name": "账号个数",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "需要几个账号，数字为几"
+                }
+            ],
+            "repo": "https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_fhxz.js",
+            "icons": [
+                "https://gitee.com/ydj0602/hym/raw/img/DKD.PNG",
+                "https://gitee.com/ydj0602/hym/raw/img/DKD.PNG"
+            ],
+            "script": "https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_fhxz.js"
+        },
+        {
+            "id": "iroyway_kxhy",
+            "name": "开心花园",
+            "keys": [
+                "kxhyheader",
+                "adheader",
+                "adbody"
+                
+            ],
+            "author": "@iroyway",
+            "settings": [
+                {
+                    "id": "iroyway_kxhystatus",
+                    "name": "当前账号",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "当前账号对应"
+                },
+                {
+                    "id": "iroyway_kxhycount",
+                    "name": "账号个数",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "需要几个账号，数字为几"
+                }
+            ],
+            "repo": "https://raw.githubusercontent.com/iroyway/scripts/master/kxhy.js",
+            "icons": [
+                "https://gitee.com/ydj0602/hym/raw/img/DKD.PNG",
+                "https://gitee.com/ydj0602/hym/raw/img/DKD.PNG"
+            ],
+            "script": "https://raw.githubusercontent.com/iroyway/scripts/master/kxhy.js"
+        }
     ]
 }
