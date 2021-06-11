@@ -26,9 +26,9 @@ const $ = Env('开心大丰收')
 const notify = $.isNode() ? require('./sendNotify') : '';
 
 let status;
-status = (status = ($.getval("kxdfsstatus") || "1")) > 1 ? `${status}` : "";
-kxdfsheaderArr = []
-let kxdfsheader = $.getdata('kxdfsheader')
+status = (status = ($.getval("iroyway_kxdfsstatus") || "1")) > 1 ? `${status}` : "";
+iroyway_kxdfsheaderArr = []
+let iroyway_kxdfsheader = $.getdata('iroyway_kxdfsheader')
 
 const logs = 0;
 
@@ -39,21 +39,21 @@ if (isGetCookie) {
     $.done()
 }
 
-kxdfsheaderArr.push($.getdata('kxdfsheader'))
+iroyway_kxdfsheaderArr.push($.getdata('iroyway_kxdfsheader'))
 let kxdfscount = ($.getval('kxdfscount') || '1');
 for (let i = 2; i <= kxdfscount; i++) {
-    kxdfsheaderArr.push($.getdata(`kxdfsheader${i}`))
+    iroyway_kxdfsheaderArr.push($.getdata(`iroyway_kxdfsheader${i}`))
 }
 !(async () => {
-    if (!kxdfsheaderArr[0]) {
+    if (!iroyway_kxdfsheaderArr[0]) {
         $.msg($.name, '【提示】请先获取开心大丰收数据')
         return;
     }
-    console.log(`------------- 共${kxdfsheaderArr.length}账号----------------\n`)
-    for (let i = 0; i < kxdfsheaderArr.length; i++) {
-        if (kxdfsheaderArr[i]) {
+    console.log(`------------- 共${iroyway_kxdfsheaderArr.length}账号----------------\n`)
+    for (let i = 0; i < iroyway_kxdfsheaderArr.length; i++) {
+        if (iroyway_kxdfsheaderArr[i]) {
             message = ''
-            kxdfsheader = kxdfsheaderArr[i];
+            iroyway_kxdfsheader = iroyway_kxdfsheaderArr[i];
             $.index = i + 1;
             console.log(`\n开始【开心大丰收${$.index}】`)
 
@@ -71,10 +71,10 @@ for (let i = 2; i <= kxdfscount; i++) {
 function GetCookie() {
     if ($request && $request.url.indexOf("main/page") >= 0) {
 
-        const kxdfsheader = JSON.stringify($request.headers)
-        if (kxdfsheader) $.setdata(kxdfsheader, `kxdfsheader${status}`)
-        $.log(`[${kxdfs}] 获取kxdfsheader请求: 成功,kxdfsheader: ${kxdfsheader}`)
-        $.msg(`kxdfsheader${status}: 成功🎉`, ``)
+        const iroyway_kxdfsheader = JSON.stringify($request.headers)
+        if (iroyway_kxdfsheader) $.setdata(iroyway_kxdfsheader, `iroyway_kxdfsheader${status}`)
+        $.log(`[${kxdfs}] 获取iroyway_kxdfsheader请求: 成功,iroyway_kxdfsheader: ${iroyway_kxdfsheader}`)
+        $.msg(`iroyway_kxdfsheader${status}: 成功🎉`, ``)
     }
 }
 
@@ -140,7 +140,7 @@ async function zdtx2() {
     for (let i = 0; i < 18; i++) {
         no3= i;
         await tx2()
-        $.log("新春红包提现" + no3)
+        $.log("每日红包提现" + no3)
     }
 }
 
@@ -148,7 +148,7 @@ async function sqz() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/receive/harvest?position=${no1}`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -172,7 +172,7 @@ async function sqzfb() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/harvest/reward?video=2`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -196,7 +196,7 @@ async function xmhb() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/receive/source/reward`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -220,7 +220,7 @@ async function qshb() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/receive/box`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -244,7 +244,7 @@ async function yz() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no1}&seedId=17`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -269,7 +269,7 @@ async function yy() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no1}&seedId=16`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -293,7 +293,7 @@ async function yn() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no1}&seedId=18`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -317,7 +317,7 @@ async function zd() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=1`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -342,7 +342,7 @@ async function zd2() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=2`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -367,7 +367,7 @@ async function zd3() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=3`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -391,7 +391,7 @@ async function zd4() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=4`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -416,7 +416,7 @@ async function zd5() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=5`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -440,7 +440,7 @@ async function zd6() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=6`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -464,7 +464,7 @@ async function zd7() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=7`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -488,7 +488,7 @@ async function zd8() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=8`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -512,7 +512,7 @@ async function zd9() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=9`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -536,7 +536,7 @@ async function zd10() {
     return new Promise((resolve) => {
         let plant6_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/common/produce?position=${no}&seedId=10`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(plant6_url, async (error, response, data) => {
@@ -561,7 +561,7 @@ async function fh() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/daily/reward/video`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -584,7 +584,7 @@ async function rw() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/task/receive/common?taskId=${no}`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -607,7 +607,7 @@ async function sjhb() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/upgrade/bag/reward?position=${no}`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -630,7 +630,7 @@ async function sphb() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/receive/limit/reward`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -655,7 +655,7 @@ async function cj() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/turn/get/reward`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -678,7 +678,7 @@ async function cj1() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/turn/add/reward?type=1`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -705,7 +705,7 @@ async function tdhb() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/fix/trouble?position=${no}`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -729,7 +729,7 @@ async function ktd() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/unlock/land?position=${no}`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -752,7 +752,7 @@ async function havest() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/receive/harvest?position=${no}`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -776,7 +776,7 @@ async function havest1() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/harvest/reward?video=2`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -800,7 +800,7 @@ async function havestjs() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/speed/produce?position=${no}`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -824,7 +824,7 @@ async function qtjs() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/speed/fast/produce?video=2`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -849,7 +849,7 @@ async function lqjsq() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/video/speed`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -874,7 +874,7 @@ async function tx1() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/receiv/weight/cash?id=${no2}`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -899,7 +899,7 @@ async function tx2() {
     return new Promise((resolve) => {
         let havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/daily/reward/ex?id=${no3}`,
-            headers: JSON.parse(kxdfsheader),
+            headers: JSON.parse(iroyway_kxdfsheader),
 
         }
         $.post(havest_url, async (error, response, data) => {
