@@ -132,7 +132,7 @@ async function zdtx1() {
     for (let i = 0; i < 18; i++) {
         no2 = i;
         await tx1()
-        $.log("新春红包提现" + no)
+        $.log("新春红包提现" + no2)
     }
 }
 
@@ -140,7 +140,7 @@ async function zdtx2() {
     for (let i = 0; i < 18; i++) {
         no3= i;
         await tx2()
-        $.log("新春红包提现" + no)
+        $.log("新春红包提现" + no3)
     }
 }
 
