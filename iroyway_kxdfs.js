@@ -883,6 +883,7 @@ async function tx1() {
                 if (logs) $.log(data)
                 if (result.code == 0)
                     $.log("新春红包提现成功" + result.result)
+                 await $.wait(1000);
 
                 if (result.code == -100)
                     $.log(result.message)
@@ -908,6 +909,7 @@ async function tx2() {
                 if (logs) $.log(data)
                 if (result.code == 0)
                     $.log("每日分红提现成功" + result.result)
+                 await $.wait(1000);
 
                 if (result.code == -1)
                     $.log(result.message)
