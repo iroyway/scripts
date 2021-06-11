@@ -55,6 +55,38 @@
             "script": "https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_fhxz.js"
         },
         {
+            "id": "iroyway_kxdfs",
+            "name": "富豪小镇改",
+            "keys": [
+                "iroyway_kxdfsheader",
+                "iroyway_kxdfsheader2"
+          
+            ],
+            "author": "@iroyway",
+            "settings": [
+                {
+                    "id": "iroyway_kxdfsstatus",
+                    "name": "当前账号",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "当前账号对应"
+                },
+                {
+                    "id": "iroyway_kxdfscount",
+                    "name": "账号个数",
+                    "val": "1",
+                    "type": "number",
+                    "desc": "需要几个账号，数字为几"
+                }
+            ],
+            "repo": "https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_kxdfs.js",
+            "icons": [
+                "https://gitee.com/ydj0602/hym/raw/img/DKD.PNG",
+                "https://gitee.com/ydj0602/hym/raw/img/DKD.PNG"
+            ],
+            "script": "https://raw.githubusercontent.com/iroyway/scripts/master/iroyway_kxdfs.js"
+        },
+        {
             "id": "iroyway_kxhy",
             "name": "开心花园",
             "keys": [
