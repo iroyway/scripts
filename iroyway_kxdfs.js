@@ -138,7 +138,7 @@ async function zdtx1() {
 
 async function zdtx2() {
     for (let i = 0; i < 18; i++) {
-        no3= i;
+        no3 = i;
         await tx2()
         $.log("每日红包提现" + no3)
     }
@@ -872,9 +872,34 @@ async function lqjsq() {
 
 async function tx1() {
     return new Promise((resolve) => {
-        let havest_url = {
+        const header = {
+            'Accept': '*/*',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Accept-Language': 'zh-cn',
+            'Connection': 'keep-alive',
+            'Host': 'bp-api.coohua.com',
+            'Origin': 'https://kaixindafengshouh5.coohua.com',
+            'Referer': 'https://kaixindafengshouh5.coohua.com/mall.html?version=1.0.3&bs=CDMA&channel=AppStore&pkgId=272&brand=Apple&gps=27.239366,112.862886&deviceId=102A616B-B8DF-4B0C-8597-67D840524989&osVersion=iOS14.400000&os=iOS&anomy=0&userId=227173947&appId=392&accessKey=25bf11f604ad00f007ca6b742494bc1d_227173947&isPass=1&appVersion=1.0.3&env=production&romVersion=iOS14.400000&sign=fLxoYLGc/mPCoIvp0OWFfZU0ukqXiT1hcHHBTUoalMgF7CCvyFTvxs2JJ6B3IMmWj5YBScsUHpPai8PPHO01hQ==',
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148',
+            'accessKey': '25bf11f604ad00f007ca6b742494bc1d_227173947',
+            'appVersion': '1.0.3',
+            'brand': 'Apple',
+            'bs': 'CDMA',
+            'channel': 'AppStore',
+            'deviceId': '102A616B-B8DF-4B0C-8597-67D840524989',
+            'gps': '27.239366,112.862886',
+            //'mac':, 
+            //'oaid':, 
+            'os': 'iOS',
+            'osVersion': 'iOS14.400000',
+            'pkgId': '272',
+            'romVersion': 'iOS14.400000',
+            'sign': 'cv7al6uOtJ77Khnjoc6l64dXQmK28cbZyvBzMoyUb/Zh4r+f42aXamgIymkaGeVrqw+yb5AAxeWu/I8+KrvWVg==',
+            //'targetApi':
+        }
+        const havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/receiv/weight/cash?id=${no2}`,
-            headers: JSON.parse(iroyway_kxdfsheader),
+            headers: header,
 
         }
         $.post(havest_url, async (error, response, data) => {
@@ -883,7 +908,7 @@ async function tx1() {
                 if (logs) $.log(data)
                 if (result.code == 0)
                     $.log("新春红包提现成功" + result.result)
-                 await $.wait(1000);
+                await $.wait(1000);
 
                 if (result.code == -100)
                     $.log(result.message)
@@ -909,7 +934,7 @@ async function tx2() {
                 if (logs) $.log(data)
                 if (result.code == 0)
                     $.log("每日分红提现成功" + result.result)
-                 await $.wait(1000);
+                await $.wait(1000);
 
                 if (result.code == -1)
                     $.log(result.message)
