@@ -129,7 +129,7 @@ async function haves() {
 
 
 async function zdtx1() {
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 10; i++) {
         no2 = i;
         await tx1()
         $.log("新春红包提现" + no2)
@@ -137,7 +137,7 @@ async function zdtx1() {
 }
 
 async function zdtx2() {
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 10; i++) {
         no3 = i;
         await tx2()
         $.log("每日红包提现" + no3)
