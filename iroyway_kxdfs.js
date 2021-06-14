@@ -904,18 +904,22 @@ async function tx1() {
         }
         $.get(havest_url, async (error, response, data) => {
             try {
-                const result = JSON.parse(data)
-                if (logs) $.log(data)
-                if (result.code == 0)
-                    //$.log("新春红包提现成功" + result.result);
-                    console.log(`新春红包提现成功,详情$.{JSON.stringify(result)}`)
+                if (error) {
+                    console.log(`${JSON.stringify(error)}`)
+                    console.log(`${$.name}API请求失败，请检查网络重试`)
+                } else {
+                    const result = JSON.parse(data)
+                    if (logs) $.log(data)
+                    if (result.code == 0)
+                        //$.log("新春红包提现成功" + result.result);
+                        console.log(`新春红包提现成功,详情$.{JSON.stringify(result)}`)
 
-                await $.wait(1000);
+                    await $.wait(1000);
 
-                if (result.code == -100)
-                    console.log(`新春红包提现失败,详情$.{JSON.stringify(result)}`)
-                //$.log(result.message)
-
+                    if (result.code == -100)
+                        console.log(`新春红包提现失败,详情$.{JSON.stringify(result)}`)
+                    //$.log(result.message)
+                }
             } catch (e) {
                 $.logErr(e, response);
             } finally {
