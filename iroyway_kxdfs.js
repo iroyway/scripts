@@ -57,8 +57,8 @@ for (let i = 2; i <= kxdfscount; i++) {
             $.index = i + 1;
             console.log(`\n开始【开心大丰收${$.index}】`)
 
-            await havesyz()
-            await haves()
+            //await havesyz()
+            //await haves()
             await zdtx1()
             await zdtx2()
         }
@@ -132,7 +132,6 @@ async function zdtx1() {
     for (let i = 0; i < 10; i++) {
         no2 = i;
         await tx1()
-        $.log("新春红包提现" + no2)
     }
 }
 
@@ -899,7 +898,7 @@ async function tx1() {
         }
         const havest_url = {
             url: `https://bp-api.coohua.com/shua-happyharvest/receiv/weight/cash?id=${no2}`,
-            headers: header,
+            headers: header
 
         }
         $.get(havest_url, async (error, response, data) => {
