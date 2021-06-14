@@ -902,7 +902,7 @@ async function tx1() {
             headers: header,
 
         }
-        $.post(havest_url, async (error, response, data) => {
+        $.get(havest_url, async (error, response, data) => {
             try {
                 const result = JSON.parse(data)
                 if (logs) $.log(data)
@@ -928,7 +928,7 @@ async function tx2() {
             headers: JSON.parse(iroyway_kxdfsheader),
 
         }
-        $.post(havest_url, async (error, response, data) => {
+        $.get(havest_url, async (error, response, data) => {
             try {
                 const result = JSON.parse(data)
                 if (logs) $.log(data)
