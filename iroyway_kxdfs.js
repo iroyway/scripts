@@ -907,11 +907,15 @@ async function tx1() {
                 const result = JSON.parse(data)
                 if (logs) $.log(data)
                 if (result.code == 0)
-                    $.log("新春红包提现成功" + result.result)
+                    //$.log("新春红包提现成功" + result.result);
+                    console.log(`新春红包提现成功,详情$.{JSON.stringify(result)}`)
+
                 await $.wait(1000);
 
                 if (result.code == -100)
-                    $.log(result.message)
+                    console.log(`新春红包提现失败,详情$.{JSON.stringify(result)}`)
+                //$.log(result.message)
+
             } catch (e) {
                 $.logErr(e, response);
             } finally {
